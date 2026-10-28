@@ -2,9 +2,10 @@
 
 This file is the history of the project. Append an entry when a choice changes the work: the quantity, the data, the split, the model, the loss, or the action. Leave old entries in place. A later entry can reverse an earlier one. If a result depends on a random draw, record the seed under Why. The split entry records the cutoff date, or the seed and the fraction. The pull request that merges the code names this entry.
 
-## YYYY-MM-DD: short title
+## 2026-10-28: Forecast weekly flu admissions in Virginia to book surge nursing shifts
 
-- Decision. What you chose.
-- Why. The evidence.
-- Alternative. What you rejected.
-- Revisit. What would change the choice.
+- Decision. The quantity is confirmed influenza admissions to Virginia hospitals in the coming week, from the CDC NHSN state-week series, with the NSSP emergency-department flu visit share as a leading indicator. The decision is how many surge nursing shifts a hospital system books a week ahead, scored as a newsvendor cost in shifts and dollars.
+- Why. The series is public domain, so it can go on the `data` release; it has six full seasons (2020–21 through 2025–26) with peaks from 49 to 1,315 admissions a week, so there is both a strong seasonal signal and a held-out season that never enters fitting; and the decision has an asymmetric loss (understaffing costs more than an idle shift), so the action rule is a quantile, not the mean, which is the course's threshold-from-loss idea. A known provenance issue, the May–November 2024 voluntary-reporting window where as few as 26 hospitals reported, gives a concrete bias-versus-noise discussion.
+- Alternative. Forecast morning departures at one Capital Bikeshare station to decide overnight rebalancing. Same decision shape and far more rows, but the data license forbids redistributing the files, the decision maker's costs are harder to pin down, and 300 weekly points we can name beat 600,000 rides we cannot.
+- Revisit. If the statewide count turns out to be too coarse to stand in for one hospital system (for example, if the NSSP health-service-area series shows the Northern Virginia peak lands weeks away from the state's), switch the quantity to the Fairfax–Arlington health service area's ED visit share and rebuild the loss around that. If the 2024 reporting gap cannot be rescaled defensibly, fit on 2022–23 and 2023–24 only and say so.
+- AI use. Claude Code drafted this entry and the proposal from the instructor's lab page and the two CDC feeds; the data pulls and the counts above were run and checked by the tutor session.
