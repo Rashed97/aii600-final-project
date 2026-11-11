@@ -68,6 +68,8 @@ R or Python. Use the language you can explain. AI assistants are allowed. On you
 - `decisions.md`. Append one entry per choice. Do not rewrite an old entry.
 - `CHECKLIST.md`. The lab, as checkboxes. Tick them in the final commit.
 - `analysis.ipynb`. The code, and the home of the diagram, the equations, the simulation check, the residuals and calibration, and the limits. A `.py` or `.R` file holds a function two people would otherwise edit in the notebook.
+- `flu.py`. Functions the notebook calls: the checksum check and the data loaders.
+- `fetch_data.py`. The queries that took the data snapshot. Run it only to take a new snapshot on purpose.
 - `requirements.txt` and `.python-version`. The packages, and the interpreter they were pinned for. An R project deletes both and commits `renv.lock`.
 - `.github/pull_request_template.md`. The form a pull request opens with.
 - `fig/`. Plots saved from the notebook, including `fig/layers.png`.
